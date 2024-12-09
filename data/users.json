@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "user@example.com",
+      "password": "user123",
+      "name": "일반 유저",
+      "role": "user",
+      "createdAt": "2024-01-01"
+    }
+  ],
+  "admins": [
+    {
+      "id": 1,
+      "email": "admin@ddeunddeun.com",
+      "password": "admin123",
+      "name": "관리자",
+      "role": "admin",
+      "createdAt": "2024-01-01",
+      "permissions": ["create", "read", "update", "delete"]
+    }
+  ],
+  "superAdmin": {
+    "id": 1,
+    "email": "super@ddeunddeun.com",
+    "password": "super123",
+    "name": "최고관리자",
+    "role": "superAdmin",
+    "createdAt": "2024-01-01",
+    "permissions": ["all"]
+  }
+}
