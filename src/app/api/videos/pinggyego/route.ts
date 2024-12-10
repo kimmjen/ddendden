@@ -8,7 +8,7 @@ export async function GET() {
         console.log('jsonDirectory', jsonDirectory)
         const fileContents = await fs.readFile(jsonDirectory + '/videos_pinggyego.json', 'utf8');
         const data = JSON.parse(fileContents);
-
+        console.log(1)
         // 데이터가 배열이 아닌 경우 빈 배열 반환
         if (!Array.isArray(data)) {
             console.warn('데이터가 배열 형식이 아닙니다:', data);
