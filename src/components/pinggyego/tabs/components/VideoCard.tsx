@@ -1,18 +1,25 @@
 import { FC } from 'react';
 import {ProcessedVideo, Video} from "@/types/video";
 import {formatDate, formatNumber} from "@/utils/format";
+import { useRouter } from "next/navigation";
 
 interface VideoCardProps {
     video: Video;  // ProcessedVideo 대신 원본 Video 타입 사용
 }
 
+
 export const VideoCard: FC<VideoCardProps> = ({ video }) => {
+    const router = useRouter()
     const formattedTitle = video.title.replace('[EN] ', '').replace('ㅣ', '-');
     const thumbnailUrl = video.thumbnail_urls.maxres || video.thumbnail_urls.high;
 
 
+    const handleClickVideo = (videoId: string) => {
+        router.push(`/pinggyego/${videoId}`)
+    }
+
     return (
-        <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+        <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow" onClick={() => handleClickVideo(video.video_id)}>
             <div className="aspect-video bg-gray-100 relative">
                 <img
                     src={thumbnailUrl}

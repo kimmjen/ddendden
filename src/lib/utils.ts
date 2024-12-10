@@ -75,6 +75,12 @@ export const formatDate = (date: Date | string): string => {
     return format(dateObj, formatString, { locale: dateLocale });
 };
 
+const formatDuration = (seconds: number): string => {
+    const hours = Math.floor(seconds / 3600)
+    const minutes = Math.floor((seconds % 3600) / 60)
+    return hours > 0 ? `${hours}:${minutes.toString().padStart(2, '0')}:00` : `${minutes}:00`
+}
+
 export const formatDateDistance = (date: Date | string): string => {
     const language = useLanguageStore.getState().language;
     const dateObj = typeof date === 'string' ? new Date(date) : date;

@@ -52,7 +52,9 @@
       "pinggyego-live": "Pinggyego Live",
       "monthly": "Gyewon of the Month",
       "award": "Award Ceremony"
-    }
+    },
+    "ddendden": "DDenDDen",
+    "schedule": "Schedule"
   },
   "ko": {
     "login": "로그인",
@@ -107,6 +109,8 @@
       "pinggyego-live": "핑계고 라이브",
       "monthly": " 이달의 계원",
       "award": "시상식"
-    }
+    },
+    "ddendden": "뜬뜬",
+    "schedule": "스케쥴"
   }
 }
