@@ -6,7 +6,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     try {
         const { id } = await params;
         const jsonDirectory = path.join(process.cwd(), 'data');
-        const fileContents = await fs.readFile(jsonDirectory + '/videos_pinggyego.json', 'utf8');
+        const fileContents = await fs.readFile(jsonDirectory + '/videos_all.json', 'utf8');
         const videos = JSON.parse(fileContents);
         
         const currentIndex = videos.findIndex((v: any) => v.video_id === id);
