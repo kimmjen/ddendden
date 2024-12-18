@@ -3,7 +3,7 @@
 import { useTranslation } from "@/i18n/client";
 import { Post } from "@/types/post";
 import Image from "next/image";
-import { Heart, MessageCircle, Share2 } from "lucide-react";
+import {Heart, Loader2, MessageCircle, Share2} from "lucide-react";
 import { useEffect, useState } from "react";
 import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -123,8 +123,8 @@ export default function CommunityPage() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-gray-500">Loading posts...</div>
+            <div className="flex justify-center items-center min-h-[400px]">
+                <Loader2 className="animate-spin h-8 w-8 text-pink-500" />
             </div>
         );
     }

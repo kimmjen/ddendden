@@ -4,6 +4,7 @@ import Link from "next/link";
 import {VideoDetail} from "@/types/video";
 import {useParams} from "next/navigation";
 import {useEffect, useState} from "react";
+import {Loader2} from "lucide-react";
 
 interface NavigationVideo {
     video_id: string,
@@ -82,7 +83,7 @@ export default function VideoDetailPage() {
     const params = useParams();
     const videoId = params.videoId as string;
     const [videoData, setVideoData] = useState<VideoResponse | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log(videoId)
@@ -98,7 +99,13 @@ export default function VideoDetailPage() {
             })
     }, []);
 
-    if (loading) return <div>Loading...</div>;
+    if (isLoading) {
+        return (
+            <div className="flex justify-center items-center min-h-[400px]">
+                <Loader2 className="animate-spin h-8 w-8 text-pink-500" />
+            </div>
+        );
+    }
     if (!videoData) return <div>Video not found</div>;
 
     const { video, prevVideo, nextVideo } = videoData;

@@ -19,7 +19,7 @@ export const VideoCard: FC<VideoCardProps> = ({ video }) => {
     }
 
     return (
-        <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow" onClick={() => handleClickVideo(video.video_id)}>
+        <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer" onClick={() => handleClickVideo(video.video_id)}>
             <div className="aspect-video bg-gray-100 relative">
                 <img
                     src={thumbnailUrl}
