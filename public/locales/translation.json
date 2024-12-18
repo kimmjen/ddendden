@@ -51,10 +51,16 @@
       "mini-pinggyego": "Mini Pinggyego",
       "pinggyego-live": "Pinggyego Live",
       "monthly": "Gyewon of the Month",
-      "award": "Award Ceremony"
+      "award": "Award Ceremony",
+      "punghyanggo": "Punghyanggo",
+      "community": "Community"
     },
     "ddendden": "DDenDDen",
-    "schedule": "Schedule"
+    "schedule": "Schedule",
+    "punghyanggo": {
+      "title": "Punghyanggo",
+      "description": "A journey following the wind"
+    }
   },
   "ko": {
     "login": "로그인",
@@ -108,9 +114,15 @@
       "mini-pinggyego": "Mini 핑계고",
       "pinggyego-live": "핑계고 라이브",
       "monthly": " 이달의 계원",
-      "award": "시상식"
+      "award": "시상식",
+      "punghyanggo": "풍향고",
+      "community": "커뮤니티"
     },
     "ddendden": "뜬뜬",
-    "schedule": "스케쥴"
+    "schedule": "스케쥴",
+    "punghyanggo": {
+      "title": "풍향고",
+      "description": "바람 따라 떠나는 여행"
+    }
   }
 }

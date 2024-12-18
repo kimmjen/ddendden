@@ -51,6 +51,7 @@ export const MOCK_TAGS = [
 export const MOCK_POSTS: Post[] = [
     {
         id: 1,
+        post_id: 1,
         author: {
             name: '뜬뜬계원_1',
             avatar: '/images/avatar.webp'
@@ -63,6 +64,7 @@ export const MOCK_POSTS: Post[] = [
     },
     {
         id: 2,
+        post_id: 2,
         author: {
             name: '뜬뜬계원_2',
             avatar: '/images/avatar.webp'
@@ -75,6 +77,7 @@ export const MOCK_POSTS: Post[] = [
     },
     {
         id: 3,
+        post_id: 3,
         author: {
             name: '뜬뜬계원_3',
             avatar: '/images/avatar.webp'

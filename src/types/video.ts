@@ -49,6 +49,7 @@ export interface VideoDetail {
     };
     video_type: string;
     url: string;
+    live_broadcast_content: string;
 }
 
 export interface ProcessedVideo extends Omit<Video, 'thumbnail_urls'> {

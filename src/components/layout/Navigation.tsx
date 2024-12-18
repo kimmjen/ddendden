@@ -34,6 +34,12 @@ export const Navigation = () => {
                     </Link>
                 </div>
                 <div className="flex items-center space-x-8">
+                    <Link href="/community" className="text-gray-700 hover:text-pink-500">
+                        {t('navigation.community')}
+                    </Link>
+                    <Link href="/punghyanggo" className="text-gray-700 hover:text-pink-500">
+                        {t('navigation.punghyanggo')}
+                    </Link>
                     <Link href="/pinggyego" className="text-gray-700 hover:text-pink-500">
                         {t('navigation.pinggyego')}
                     </Link>

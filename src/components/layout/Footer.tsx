@@ -27,8 +27,7 @@ export const Footer = () => {
                     <div>
                         <h3 className="text-lg font-bold mb-4">바로가기</h3>
                         <div className="space-y-2">
-                            <div><Link href="/pinggo" className="text-gray-600 hover:text-pink-500">핑계고</Link></div>
-                            <div><Link href="/mini" className="text-gray-600 hover:text-pink-500">MINI 핑계</Link></div>
+                            <div><Link href="/pinggyego" className="text-gray-600 hover:text-pink-500">핑계고</Link></div>
                             <div><Link href="/monthly" className="text-gray-600 hover:text-pink-500">이달의 계원</Link></div>
                             <div><Link href="/awards" className="text-gray-600 hover:text-pink-500">시상식</Link></div>
                         </div>

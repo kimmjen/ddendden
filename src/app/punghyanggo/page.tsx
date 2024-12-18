@@ -1,8 +1,7 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import { IntroTab, VideoTab, CastTab, CommentTab } from '@/components/monthly/tabs';
-
+import { useState} from "react";
+import { IntroTab, VideoTab, CastTab, CommentTab } from '@/components/punghyanggo/tabs';
 import { useTranslation } from '@/i18n/client';
 
 type TabId = 'intro' | 'videos' | 'cast' | 'comments';
@@ -14,19 +13,17 @@ const TAB_COMPONENTS = {
     'comments': CommentTab
 } as const;
 
-export default function MonthlyPage() {
+export default function PungHyanggoPage() {
     const { t } = useTranslation();
     const [currentTab, setCurrentTab] = useState<TabId>('intro');
-
     const tabs: Array<{ id: TabId; label: string }> = [
         { id: 'intro', label: t('tabs.intro') },
         { id: 'videos', label: t('tabs.videos') },
         { id: 'cast', label: t('tabs.cast') },
         { id: 'comments', label: t('tabs.comments') }
-    ];
+    ]
 
     const TabComponent = TAB_COMPONENTS[currentTab];
-
     return (
         <div className="min-h-screen">
             {/* 헤더 섹션 */}
@@ -34,13 +31,12 @@ export default function MonthlyPage() {
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="py-8">
                         <h1 className="text-3xl font-bold mb-2">
-                            {t('monthly.title')}
+                            {t('punghyanggo.title')}
                         </h1>
                         <p className="text-gray-600">
-                            {t('monthly.description')}
+                            {t('punghyanggo.description')}
                         </p>
                     </div>
-
                     {/* 탭 네비게이션 */}
                     <div className="flex space-x-1 border-b">
                         {tabs.map(({ id, label }) => (

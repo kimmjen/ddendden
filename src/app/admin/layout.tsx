@@ -1,39 +1,9 @@
 'use client'
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import {Header} from "@/app/admin/components/Header";
+import {Navigation} from "@/app/admin/components/Navigation";
 
-const menuItems = [
-    { path: '/admin', label: '대시보드' },
-    { path: '/admin/contents', label: '콘텐츠 관리' },
-    { path: '/admin/users', label: '사용자 관리' },
-    { path: '/admin/awards', label: '시상식 관리' },
-]
-
-// 클라이언트 컴포넌트로 분리
-
-function Navigation() {
-    const pathname = usePathname()
-
-    return (
-        <nav className="space-y-2">
-            {menuItems.map((item) => (
-                <Link
-                    key={item.path}
-                    href={item.path}
-                    className={`block p-2 rounded transition-colors
-                        ${pathname === item.path
-                        ? 'bg-gray-800 text-white'
-                        : 'hover:bg-gray-800'}`}
-                >
-                    {item.label}
-                </Link>
-            ))}
-        </nav>
-    )
-}
-
-// 서버 컴포넌트
+// AdminLayout 컴포넌트 수정
 export default function AdminLayout({
                                         children,
                                     }: {
@@ -42,17 +12,25 @@ export default function AdminLayout({
     return (
         <div className="min-h-screen grid grid-cols-[250px_1fr]">
             {/* 사이드바 */}
-            <aside className="bg-[#1a1a1a] text-white p-4">
-                <div className="mb-8">
+            <aside className="bg-[#1a1a1a] text-white p-4 flex flex-col">
+                <div className="mb-8 px-3 py-4">
                     <h1 className="text-xl font-bold">뜬뜬 관리자</h1>
                 </div>
                 <Navigation />
+                <div className="mt-auto p-3">
+                    <div className="text-sm text-gray-400">
+                        <p>Version 1.0.0</p>
+                    </div>
+                </div>
             </aside>
 
-            {/* 메인 콘텐츠 */}
-            <main className="p-8">
-                {children}
-            </main>
+            {/* 메인 영역 */}
+            <div className="flex flex-col">
+                <Header />
+                <main className="p-8 bg-gray-50 flex-1">
+                    {children}
+                </main>
+            </div>
         </div>
     );
 }
