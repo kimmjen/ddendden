@@ -46,9 +46,6 @@ export const Navigation = () => {
                     <Link href="/monthly" className="text-gray-700 hover:text-pink-500">
                         {t('navigation.monthly')}
                     </Link>
-                    <Link href="/awards" className="text-gray-700 hover:text-pink-500">
-                        {t('navigation.award')}
-                    </Link>
                     <Link href="/message" className="text-gray-700 hover:text-pink-500">
                         Message
                     </Link>
