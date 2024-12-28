@@ -1,16 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { IntroTab, VideoTab, CastTab, CommentTab } from '@/components/pinggyego/tabs';
+import {IntroTab, VideoTab, CastTab, CommentTab, GuestTabs} from '@/components/pinggyego/tabs';
 import { useTranslation } from '@/i18n/client';
 
-type TabId = 'intro' | 'videos' | 'cast' | 'comments';
+type TabId = 'intro' | 'videos' | 'cast' | 'comments' | 'guest';
 
 const TAB_COMPONENTS = {
     'intro': IntroTab,
     'videos': VideoTab,
     'cast': CastTab,
-    'comments': CommentTab
+    'comments': CommentTab,
+    'guest': GuestTabs
 } as const;
 
 export default function PinggoPage() {
@@ -21,7 +22,8 @@ export default function PinggoPage() {
         { id: 'intro', label: t('tabs.intro') },
         { id: 'videos', label: t('tabs.videos') },
         { id: 'cast', label: t('tabs.cast') },
-        { id: 'comments', label: t('tabs.comments') }
+        { id: 'comments', label: t('tabs.comments') },
+        { id: 'guest', label: t('tabs.guest') }
     ];
 
     const TabComponent = TAB_COMPONENTS[currentTab];

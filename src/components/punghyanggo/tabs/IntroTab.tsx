@@ -31,11 +31,11 @@ export const IntroTab = () => {
                             <div className="space-y-2 text-sm text-gray-600">
                                 <div className="flex gap-2">
                                     <span className="text-gray-400 w-20">방영 기간</span>
-                                    <span>2024년 01월 31일 ~ 2024년 09월 30일</span>
+                                    <span>2024년 11월 24일 ~ 2024년 12월 21일</span>
                                 </div>
                                 <div className="flex gap-2">
                                     <span className="text-gray-400 w-20">방송 시간</span>
-                                    <span>매월 한 편</span>
+                                    <span>매주 한 편</span>
                                 </div>
                                 <div className="flex gap-2">
                                     <span className="text-gray-400 w-20">제작</span>

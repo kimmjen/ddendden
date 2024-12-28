@@ -2,6 +2,7 @@
 import { Award } from '@/types/award';
 import Image from 'next/image';
 import { cn } from "@/lib/utils";
+import {Loader2} from "lucide-react";
 
 interface AwardCardProps {
     award: Award;
@@ -70,6 +71,12 @@ const MultipleWinnerContent = ({ winner }: { winner: Winner }) => {
 };
 
 export const AwardCard = ({ award, className }: AwardCardProps) => {
+    if (!award) return (
+        <div className="flex justify-center items-center min-h-[400px]">
+            <Loader2 className="animate-spin h-8 w-8 text-pink-500" />
+        </div>
+    );
+
     // 대상인 경우 특별한 스타일 적용
     const isDaesang = award.title === "대상";
 

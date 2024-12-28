@@ -1,0 +1,632 @@
+[
+  {
+    "date": "2022-11-15",
+    "year": 2022,
+    "episodeNumber": "EP.0",
+    "title": "핑계고_설명_영상.mp4",
+    "guests": [],
+    "location": "학동 근린공원",
+    "notes": ["예고"]
+  },
+  {
+    "date": "2022-11-17",
+    "year": 2022,
+    "episodeNumber": "EP.1",
+    "title": "산책은 핑계고",
+    "guests": ["지석진"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2022-11-25",
+    "year": 2022,
+    "episodeNumber": "EP.2",
+    "title": "몸보신은 핑계고",
+    "guests": ["송은이"],
+    "location": "청담 영양 센터",
+    "notes": []
+  },
+  {
+    "date": "2022-12-03",
+    "year": 2022,
+    "episodeNumber": "EP.3",
+    "title": "조찬 모임은 핑계고",
+    "guests": ["남창희", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2022-12-16",
+    "year": 2022,
+    "episodeNumber": "EP.4-1",
+    "title": "피크닉은 핑계고",
+    "guests": ["이광수", "지석진"],
+    "location": "몽마르뜨공원",
+    "notes": []
+  },
+  {
+    "date": "2022-12-23",
+    "year": 2022,
+    "episodeNumber": "EP.4-2",
+    "title": "또 피크닉은 핑계고",
+    "guests": ["이광수", "지석진"],
+    "location": "몽마르뜨공원",
+    "notes": []
+  },
+  {
+    "date": "2023-01-01",
+    "year": 2023,
+    "episodeNumber": "EP.5-1",
+    "title": "신년모임은 핑계고",
+    "guests": ["홍진경", "남창희", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-01-08",
+    "year": 2023,
+    "episodeNumber": "EP.5-2",
+    "title": "또 신년모임은 핑계고",
+    "guests": ["홍진경", "남창희", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-01-21",
+    "year": 2023,
+    "episodeNumber": "EP.6",
+    "title": "설 연휴는 핑계고",
+    "guests": ["이동욱", "남창희", "조세호"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-02-07",
+    "year": 2023,
+    "episodeNumber": "EP.7",
+    "title": "축하 파티는 핑계고",
+    "guests": ["김종국", "지석진"],
+    "location": "블랑스와레",
+    "notes": []
+  },
+  {
+    "date": "2023-02-25",
+    "year": 2023,
+    "episodeNumber": "EP.8",
+    "title": "커피 한잔은 핑계고",
+    "guests": ["유연석", "차태현"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2023-03-11",
+    "year": 2023,
+    "episodeNumber": "EP.9-1",
+    "title": "수란은 핑계고",
+    "guests": ["이동욱", "남창희", "조세호"],
+    "location": "남창희 집",
+    "notes": []
+  },
+  {
+    "date": "2023-03-18",
+    "year": 2023,
+    "episodeNumber": "EP.9-2",
+    "title": "또 수란은 핑계고 (근데 진짜 함)",
+    "guests": ["이동욱", "남창희", "조세호"],
+    "location": "남창희 집",
+    "notes": []
+  },
+  {
+    "date": "2023-03-21",
+    "year": 2023,
+    "episodeNumber": "EP.10",
+    "title": "봄맞이는 핑계고",
+    "guests": ["양세찬", "하하"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-04-08",
+    "year": 2023,
+    "episodeNumber": "EP.11",
+    "title": "가짜의 삶은 핑계고",
+    "guests": ["지석진", "홍진경", "조세호"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-04-11",
+    "year": 2023,
+    "episodeNumber": "EP.12",
+    "title": "편한 동생들은 핑계고",
+    "guests": ["슈가", "지민", "조세호", "지석진"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-05-04",
+    "year": 2023,
+    "episodeNumber": "EP.13-1",
+    "title": "가정의 달은 핑계고",
+    "guests": ["이미주", "전소민", "조세호"],
+    "location": "안테나 대표 집무실 앞 주방",
+    "notes": []
+  },
+  {
+    "date": "2023-05-08",
+    "year": 2023,
+    "episodeNumber": "EP.13-2",
+    "title": "또 가정의 달은 핑계고",
+    "guests": ["이미주", "전소민", "조세호"],
+    "location": "안테나 대표 집무실 앞 주방",
+    "notes": []
+  },
+  {
+    "date": "2023-05-20",
+    "year": 2023,
+    "episodeNumber": "EP.14-1",
+    "title": "작은 거인은 핑계고",
+    "guests": ["남창희", "양세형", "유병재"],
+    "location": "해머스미스 커피 학동역점",
+    "notes": []
+  },
+  {
+    "date": "2023-05-27",
+    "year": 2023,
+    "episodeNumber": "EP.14-2",
+    "title": "또 작은 거인은 핑계고",
+    "guests": ["남창희", "양세형", "유병재"],
+    "location": "해머스미스 커피 학동역점",
+    "notes": []
+  },
+  {
+    "date": "2023-06-11",
+    "year": 2023,
+    "episodeNumber": "EP.15-1",
+    "title": "쿠폰 완성은 핑계고",
+    "guests": ["이동욱", "남창희", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-06-11",
+    "year": 2023,
+    "episodeNumber": "EP.15-2",
+    "title": "또 쿠폰 완성은 핑계고",
+    "guests": ["이동욱", "남창희", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-06-22",
+    "year": 2023,
+    "episodeNumber": "EP.16",
+    "title": "미스터리는 핑계고",
+    "guests": ["김은희", "장항준"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-07-08",
+    "year": 2023,
+    "episodeNumber": "EP.17",
+    "title": "100만 기념은 핑계고",
+    "guests": ["이용주", "주우재", "주헌"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-07-11",
+    "year": 2023,
+    "episodeNumber": "EP.18",
+    "title": "이열치열은 핑계고",
+    "guests": ["김숙", "송은이"],
+    "location": "청담 영양 센터",
+    "notes": []
+  },
+  {
+    "date": "2023-07-22",
+    "year": 2023,
+    "episodeNumber": "EP.19",
+    "title": "커피 두세 잔은 핑계고",
+    "guests": ["조인성", "차태현", "한효주"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2023-07-29",
+    "year": 2023,
+    "episodeNumber": "EP.20-1",
+    "title": "여름 휴가는 핑계고",
+    "guests": ["조슈아", "호시", "조세호", "지석진"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-08-05",
+    "year": 2023,
+    "episodeNumber": "EP.20-2",
+    "title": "또 여름 휴가는 핑계고",
+    "guests": ["조슈아", "호시", "조세호", "지석진"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-08-14",
+    "year": 2023,
+    "episodeNumber": "EP.21",
+    "title": "합동 생파는 핑계고",
+    "guests": ["남창희", "조세호"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-09-02",
+    "year": 2023,
+    "episodeNumber": "EP.22",
+    "title": "가을맞이는 핑계고",
+    "guests": ["송지효", "지석진", "하하"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-09-07",
+    "year": 2023,
+    "episodeNumber": "EP.23",
+    "title": "보답은 핑계고",
+    "guests": ["김종민", "데프콘"],
+    "location": "미미미 가든",
+    "notes": []
+  },
+  {
+    "date": "2023-09-16",
+    "year": 2023,
+    "episodeNumber": "EP.24",
+    "title": "단짝은 핑계고",
+    "guests": ["임시완", "황광희", "지석진"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-09-23",
+    "year": 2023,
+    "episodeNumber": "EP.25",
+    "title": "대화합은 핑계고",
+    "guests": ["강하늘", "이동휘"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2023-09-29",
+    "year": 2023,
+    "episodeNumber": "EP.26",
+    "title": "추석 연휴는 핑계고",
+    "guests": ["공유", "양세찬", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-10-14",
+    "year": 2023,
+    "episodeNumber": "EP.27",
+    "title": "축제는 핑계고",
+    "guests": ["오나라", "제시"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-10-24",
+    "year": 2023,
+    "episodeNumber": "EP.28",
+    "title": "김치찌개는 핑계고",
+    "guests": ["도겸", "민규", "조슈아", "호시", "지석진"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-10-28",
+    "year": 2023,
+    "episodeNumber": "EP.29",
+    "title": "닮은꼴은 핑계고",
+    "guests": ["장항준", "송은이"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-11-18",
+    "year": 2023,
+    "episodeNumber": "EP.30",
+    "title": "다과 시간은 핑계고",
+    "guests": ["차승원"],
+    "location": "천장지구",
+    "notes": []
+  },
+  {
+    "date": "2023-12-02",
+    "year": 2023,
+    "episodeNumber": "EP.31",
+    "title": "쿠폰 사용은 핑계고",
+    "guests": ["이동욱", "임수정", "이상이"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2023-12-09",
+    "year": 2023,
+    "episodeNumber": "EP.32",
+    "title": "닭발라면은 핑계고",
+    "guests": ["이성민", "이정은", "조세호"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2023-12-17",
+    "year": 2023,
+    "episodeNumber": "EP.33",
+    "title": "제1회 핑계고 시상식",
+    "guests": [],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2023-12-25",
+    "year": 2023,
+    "episodeNumber": "EP.34",
+    "title": "12제자는 핑계고",
+    "guests": ["데프콘", "황광희"],
+    "location": "아이스타 카페",
+    "notes": []
+  },
+  {
+    "date": "2024-01-01",
+    "year": 2024,
+    "episodeNumber": "EP.35",
+    "title": "새해 인사는 핑계고",
+    "guests": ["이서진", "양세찬"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2024-01-27",
+    "year": 2024,
+    "episodeNumber": "EP.36",
+    "title": "축가는 핑계고",
+    "guests": ["조혜련", "남창희"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-02-09",
+    "year": 2024,
+    "episodeNumber": "EP.37",
+    "title": "돌아온 설 연휴는 핑계고",
+    "guests": ["이동욱", "공유", "조세호"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-02-17",
+    "year": 2024,
+    "episodeNumber": "EP.38",
+    "title": "겨울나기는 핑계고",
+    "guests": ["아이유", "양세찬"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-03-01",
+    "year": 2024,
+    "episodeNumber": "EP.39",
+    "title": "집들이는 핑계고",
+    "guests": ["오나라", "차태현", "양세찬", "제니", "이정하"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-03-09",
+    "year": 2024,
+    "episodeNumber": "EP.40",
+    "title": "새 출발은 핑계고",
+    "guests": ["지석진", "이동휘"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-03-30",
+    "year": 2024,
+    "episodeNumber": "EP.41",
+    "title": "친구 소개는 핑계고",
+    "guests": ["이동휘", "이제훈"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2024-04-13",
+    "year": 2024,
+    "episodeNumber": "EP.42",
+    "title": "본때는 핑계고",
+    "guests": ["정호연", "조세호"],
+    "location": "무탄 압구정 본점",
+    "notes": []
+  },
+  {
+    "date": "2024-04-27",
+    "year": 2024,
+    "episodeNumber": "EP.43",
+    "title": "제1회 핑계고 모닝 콜라텍",
+    "guests": [],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2024-05-11",
+    "year": 2024,
+    "episodeNumber": "EP.44",
+    "title": "돌아온 가짜의 삶은 핑계고",
+    "guests": ["지석진", "홍진경", "조세호"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-05-18",
+    "year": 2024,
+    "episodeNumber": "EP.45",
+    "title": "우리 형 자랑은 핑계고",
+    "guests": ["강동원", "조세호", "이동휘"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2024-05-25",
+    "year": 2024,
+    "episodeNumber": "EP.46",
+    "title": "추억 소환은 핑계고",
+    "guests": ["이정재", "양세찬"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2024-06-08",
+    "year": 2024,
+    "episodeNumber": "EP.47",
+    "title": "12부 리그의 사랑 이야기는 핑계고",
+    "guests": ["남창희", "조세호", "유병재", "양세형", "케이윌"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-06-15",
+    "year": 2024,
+    "episodeNumber": "EP.48",
+    "title": "첫 만남은 핑계고",
+    "guests": ["송강호", "변요한", "진기주"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2024-06-22",
+    "year": 2024,
+    "episodeNumber": "EP.49",
+    "title": "여름나기는 핑계고",
+    "guests": ["이제훈", "구교환", "지석진"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2024-07-06",
+    "year": 2024,
+    "episodeNumber": "EP.50",
+    "title": "장마철은 핑계고",
+    "guests": ["황정민", "양세찬"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-07-13",
+    "year": 2024,
+    "episodeNumber": "EP.51",
+    "title": "초복은 핑계고",
+    "guests": ["지석진", "하하", "송지효"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-07-27",
+    "year": 2024,
+    "episodeNumber": "EP.52",
+    "title": "인연은 핑계고",
+    "guests": ["전도연", "임지연", "남창희"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-08-03",
+    "year": 2024,
+    "episodeNumber": "EP.53",
+    "title": "체력 관리는 핑계고",
+    "guests": ["김동현", "권유리", "덱스"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-08-10",
+    "year": 2024,
+    "episodeNumber": "EP.54",
+    "title": "접수 완료는 핑계고",
+    "guests": ["지석진", "이광수", "양세찬"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-08-14",
+    "year": 2024,
+    "episodeNumber": "EP.55",
+    "title": "200만 기념은 핑계고",
+    "guests": ["지석진", "이동욱", "남창희"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-09-07",
+    "year": 2024,
+    "episodeNumber": "EP.56",
+    "title": "재방문 약속은 핑계고",
+    "guests": ["황정민", "장윤주", "정해인"],
+    "location": "커피 기업 압구정점",
+    "notes": []
+  },
+  {
+    "date": "2024-09-14",
+    "year": 2024,
+    "episodeNumber": "EP.57",
+    "title": "추석에 놀러온 건 핑계고",
+    "guests": ["김원희", "김나영", "남창희"],
+    "location": "안테나 플러스",
+    "notes": []
+  },
+  {
+    "date": "2024-09-28",
+    "year": 2024,
+    "episodeNumber": "EP.58",
+    "title": "동갑내기는 핑계고",
+    "guests": ["지석진", "김고은", "키", "이상이"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-10-05",
+    "year": 2024,
+    "episodeNumber": "EP.59",
+    "title": "환절기 건강 관리는 핑계고",
+    "guests": ["김동현", "양세형", "황광희"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-10-26",
+    "year": 2024,
+    "episodeNumber": "EP.60",
+    "title": "단풍놀이는 핑계고",
+    "guests": ["류승룡", "진선규", "이동휘"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-11-09",
+    "year": 2024,
+    "episodeNumber": "EP.61",
+    "title": "섬세한 I들은 핑계고",
+    "guests": ["공유", "서현진", "양세찬"],
+    "location": "",
+    "notes": []
+  },
+  {
+    "date": "2024-11-16",
+    "year": 2024,
+    "episodeNumber": "EP.62",
+    "title": "사전모임은 핑계고",
+    "guests": ["지석진", "황정민", "양세찬"],
+    "location": "탈롱드카페",
+    "notes": []
+  }
+]

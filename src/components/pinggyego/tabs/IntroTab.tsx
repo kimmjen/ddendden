@@ -103,30 +103,30 @@ export const IntroTab = () => {
             <IntroTable />
 
             {/* 에피소드 섹션 */}
-            <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h2 className="text-xl font-bold mb-4">최근 에피소드</h2>
-                <div className="grid gap-4">
-                    {recentEpisodes.map((episode) => (
-                        <div key={episode.id} className="flex gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
-                            <div className="relative w-40 h-24 rounded-md overflow-hidden flex-shrink-0">
-                                <Image
-                                    src={episode.thumbnail}
-                                    alt={episode.title}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-                            <div className="flex flex-col justify-between flex-1">
-                                <h3 className="font-medium">{episode.title}</h3>
-                                <div className="flex items-center text-sm text-gray-500">
-                                    <Clock className="w-4 h-4 mr-1" />
-                                    {episode.duration}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            {/*<div className="bg-white rounded-lg p-6 shadow-sm">*/}
+            {/*    <h2 className="text-xl font-bold mb-4">최근 에피소드</h2>*/}
+            {/*    <div className="grid gap-4">*/}
+            {/*        {recentEpisodes.map((episode) => (*/}
+            {/*            <div key={episode.id} className="flex gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">*/}
+            {/*                <div className="relative w-40 h-24 rounded-md overflow-hidden flex-shrink-0">*/}
+            {/*                    <Image*/}
+            {/*                        src={episode.thumbnail}*/}
+            {/*                        alt={episode.title}*/}
+            {/*                        fill*/}
+            {/*                        className="object-cover"*/}
+            {/*                    />*/}
+            {/*                </div>*/}
+            {/*                <div className="flex flex-col justify-between flex-1">*/}
+            {/*                    <h3 className="font-medium">{episode.title}</h3>*/}
+            {/*                    <div className="flex items-center text-sm text-gray-500">*/}
+            {/*                        <Clock className="w-4 h-4 mr-1" />*/}
+            {/*                        {episode.duration}*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        ))}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     );
 };

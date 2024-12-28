@@ -1,5 +1,5 @@
 
-import {Clock, User} from "lucide-react";
+import {Clock, Loader2, User} from "lucide-react";
 import {useEffect, useState} from "react";
 import {Video} from "@/types/video";
 import {formatDate, formatViewCount} from "@/lib/utils";
@@ -36,8 +36,8 @@ export const IntroTable = () => {
 
     if (isLoading) {
         return (
-            <div className="flex justify-center items-center h-64">
-                <div className="text-gray-500">로딩중...</div>
+            <div className="flex justify-center items-center min-h-[400px]">
+                <Loader2 className="animate-spin h-8 w-8 text-pink-500"/>
             </div>
         )
     }

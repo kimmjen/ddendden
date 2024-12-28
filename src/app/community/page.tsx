@@ -49,7 +49,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
     return (
         <div className="relative rounded-lg overflow-hidden mt-4">
             {/* Main Image */}
-            <div className="relative h-96">
+            <div className="relative h-auto">
                 <img
                     src={images[currentIndex]}
                     alt={`Slide ${currentIndex + 1}`}

@@ -1,0 +1,432 @@
+[
+
+  {
+    "id": 1,
+    "title": "대상",
+    "englishtitle": "Daesang",
+    "type": "single",
+    "nominees": [
+      {
+        "name": "남창희",
+        "works": [
+          "200만 기념은 핑계고",
+          "인연은 핑계고",
+          "추석에 놀러온 건 핑계고"
+        ]
+      },
+      {
+        "name": "양세찬",
+        "works": [
+          "겨울나기는 핑계고",
+          "집들이는 핑계고",
+          "접수 완료는 핑계고"
+        ]
+      },
+      {
+        "name": "이동욱",
+        "works": [
+          "돌아온 설 연휴는 핑계고",
+          "쿠폰 사용은 핑계고",
+          "200만 기념은 핑계고"
+        ]
+      },
+      {
+        "name": "이동휘",
+        "works": [
+          "우리 형 자랑은 핑계고",
+          "친구 소개는 핑계고",
+          "새 출발은 핑계고"
+        ]
+      },
+      {
+        "name": "조세호",
+        "works": [
+          "돌아온 설 연휴는 핑계고",
+          "우리 형 자랑은 핑계고",
+          "돌아온 가짜의 삶은 핑계고"
+        ]
+      },
+      {
+        "name": "지석진",
+        "works": [
+          "접수 완료는 핑계고",
+          "돌아온 가짜의 삶은 핑계고",
+          "200만 기념은 핑계고"
+        ]
+      },
+      {
+        "name": "황정민",
+        "works": [
+          "장마철은 핑계고",
+          "재방문 약속은 핑계고",
+          "사전모임은 핑계고"
+        ]
+      }
+    ],
+    "winner": {
+      "name": "황정민",
+      "works": [
+        "장마철은 핑계고",
+        "재방문 약속은 핑계고",
+        "사전모임은 핑계고"
+      ],
+      "description": "전례 없는 말실수로 노어플 여행 예능 풍향고의 시작을 열며 핑계고 콘텐츠 확장에 기여했다는 평을 받음",
+      "prize": "핑계고 마스코트가 새겨진 한 돈 금메달"
+    },
+    "votingMethod": "100% 온라인 계원 투표",
+    "image": "/images/award/2024/daesang.webp"
+  },
+  {
+    "id": 2,
+    "title": "최우수상",
+    "englishtitle": "Grand Award",
+    "type": "multiple",
+    "nominees": [
+      {
+        "name": "남창희",
+        "works": [
+          "200만 기념은 핑계고",
+          "인연은 핑계고",
+          "추석에 놀러온 건 핑계고"
+        ]
+      },
+      {
+        "name": "양세찬",
+        "works": [
+          "겨울나기는 핑계고",
+          "집들이는 핑계고",
+          "접수 완료는 핑계고"
+        ]
+      },
+      {
+        "name": "이동욱",
+        "works": [
+          "설 연휴는 핑계고",
+          "수란은 핑계고",
+          "쿠폰 완성은 핑계고"
+        ]
+      },
+      {
+        "name": "이동휘",
+        "works": [
+          "우리 형 자랑은 핑계고",
+          "친구 소개는 핑계고",
+          "새 출발은 핑계고"
+        ]
+      },
+      {
+        "name": "조세호",
+        "works": [
+          "돌아온 설 연휴는 핑계고",
+          "우리 형 자랑은 핑계고",
+          "돌아온 가짜의 삶은 핑계고"
+        ]
+      },
+      {
+        "name": "지석진",
+        "works": [
+          "접수 완료는 핑계고",
+          "돌아온 가짜의 삶은 핑계고",
+          "200만 기념은 핑계고"
+        ]
+      },
+      {
+        "name": "황정민",
+        "works": [
+          "장마철은 핑계고",
+          "재방문 약속은 핑계고",
+          "사전모임은 핑계고"
+        ]
+      }
+    ],
+    "winners": [
+      {
+          "name": "이동휘",
+          "works": [
+              "우리 형 자랑은 핑계고",
+              "친구 소개는 핑계고",
+              "새 출발은 핑계고"
+          ],
+        "description": "사시사철 핑계고와 함께 하며 어떤 상황에도 굴하지 않는 토크로\n자신의 가치를 증명했다는 평을 받음"
+      }
+    ],
+    "image": "/images/award/2024/GrandAward.webp"
+  },
+  {
+    "id": 3,
+    "title": "우수상",
+    "englishtitle": "Excellence Award",
+    "type": "single",
+    "nominees": [
+      {
+        "name": "공유",
+        "works": [
+            "돌아온 설 연휴는 핑계고",
+          "섬세한 I들은 핑계고"
+        ]
+      },
+      {
+        "name": "김원희",
+        "works": [
+            "추석에 놀러온 건 핑계고"
+        ]
+      },
+      {
+        "name": "이광수",
+        "works": [
+            "접수 완료는 핑계고"
+        ]
+      },
+      {
+        "name": "이상이",
+        "works": [
+            "쿠폰 사용은 핑계고",
+          "동갑내기는 핑계고"
+        ]
+      },
+      {
+        "name": "조혜련",
+        "works": [
+            "축가는 핑계고"
+        ]
+      },
+      {
+        "name": "차승원",
+        "works": [
+            "다과 시간은 핑계고"
+        ]
+      },
+      {
+        "name": "키",
+        "works": [
+            "동갑내기는 핑계고"
+        ]
+      },
+      {
+        "name": "홍진경",
+        "works": [
+            "돌아온 가짜의 삶은 핑계고"
+        ]
+      }
+    ],
+    "winner": {
+        "name": "이상이",
+        "works": [
+            "쿠폰 사용은 핑계고",
+            "동갑내기는 핑계고"
+        ],
+      "description": "무해하고 유쾌한 에피소드를 풀어내는 귀한 재능으로\n'본 투 비 웃수저', '마성의 출연자'라는 극찬을 받음"
+    },
+    "image": "/images/award/2024/ExcellenceAward.webp"
+  },
+  {
+    "id": 4,
+    "title": "작품상",
+    "englishtitle": "Best work Award",
+    "type": "multiple",
+    "winner": {
+      "work": "돌아온 설 연휴는 핑계고",
+      "members": [
+        {
+          "name": "유재석",
+          "role": "계주"
+        },
+        {
+          "name": "이동욱"
+        },
+        {
+          "name": "공유"
+        },
+        {
+          "name": "조세호"
+        }
+      ],
+      "description": "후보작 중 최다 조회 수로 1,000만 이상 조회 수 기록\n가족 같은 분위기의 티키타카로 구독자 계원에게 많은 사랑을 받은 팀",
+      "stats": {
+        "views": 1000000
+      }
+    },
+    "votingMethod": "100% 온라인 계원 투표",
+    "note": "3명이 나와 수상하였다.",
+    "image": "/images/award/2024/ProductAward.webp"
+  },
+  {
+    "id": 5,
+    "title": "써브웨이 콰드로 인기스타상 베테랑 남자",
+    "englishtitle": "Real Popularity Award",
+    "type": "multiple",
+    "winners": [
+      {
+        "name": "지석진",
+        "works": [
+          "접수 완료는 핑계고",
+        "돌아온 가짜의 삶은 핑계고"
+        ],
+        "rank": 1,
+        "votes": {
+          "votes": 37742,
+          "percentage": 20
+        }
+      }
+    ],
+    "votingMethod": "100% 온라인 계원 투표",
+    "prize": "써브웨이 10만원권 상품권",
+    "sponsor": "써브웨이",
+    "totalvotes": 97647,
+    "image": "/images/award/2024/RealPopularityAward1.webp"
+  },
+  {
+    "id": 6,
+    "title": "써브웨이 콰드로 인기스타상 베테랑 여자",
+    "englishtitle": "Real Popularity Award",
+    "type": "multiple",
+    "winners": [
+      {
+        "name": "홍진경",
+        "works": [
+          "돌아온 가짜의 삶은 핑계고"
+        ],
+        "rank": 1,
+        "votes": {
+          "votes": 67866,
+          "percentage": 36
+        }
+      }
+    ],
+    "votingMethod": "100% 온라인 계원 투표",
+    "prize": "써브웨이 10만원권 상품권",
+    "sponsor": "써브웨이",
+    "totalvotes": 97647,
+    "image": "/images/award/2024/RealPopularityAward2.webp"
+  },
+  {
+    "id": 7,
+    "title": "써브웨이 콰드로 인기스타상 라이징 남자",
+    "englishtitle": "Real Popularity Award",
+    "type": "multiple",
+    "winners": [
+      {
+        "name": "키",
+        "works": [
+          "동갑내기는 핑계고"
+        ],
+        "rank": 1,
+        "votes": {
+          "votes": 30243,
+          "percentage": 16
+        }
+      }
+    ],
+    "votingMethod": "100% 온라인 계원 투표",
+    "prize": "써브웨이 10만원권 상품권",
+    "sponsor": "써브웨이",
+    "totalvotes": 97647,
+    "image": "/images/award/2024/RealPopularityAward3.webp"
+  },
+  {
+    "id": 8,
+    "title": "써브웨이 콰드로 인기스타상 라이징 여자",
+    "englishtitle": "Real Popularity Award",
+    "type": "multiple",
+    "winners": [
+      {
+        "name": "김고은",
+        "works": [
+          "동갑내기는 핑계고"
+        ],
+        "rank": 1,
+        "votes": {
+          "votes": 38765,
+          "percentage": 20.6
+        }
+      }
+    ],
+    "votingMethod": "100% 온라인 계원 투표",
+    "prize": "써브웨이 10만원권 상품권",
+    "sponsor": "써브웨이",
+    "totalvotes": 97647,
+    "image": "/images/award/2024/RealPopularityAward4.webp"
+  },
+  {
+    "id": 9,
+    "title": "신인상",
+    "englishtitle": "Rookie Award",
+    "type": "single",
+    "nominees": [
+      {
+        "name": "강민경",
+        "works": [
+          "231108 mini핑계고 : 유재석, 다비치(이해리, 강민경)"
+        ]
+      },
+      {
+        "name": "구교환",
+        "works": [
+          "여름나기는 핑계고"
+        ]
+      },
+      {
+        "name": "박보영",
+        "works": [
+          "231011 mini핑계고 : 유재석, 조세호, 박보영"
+        ]
+      },
+      {
+        "name": "이성민",
+        "works": [
+          "닭발라면은 핑계고",
+        "240718 mini핑계고 : 유재석, 이성민, 신하균, 조세호"
+        ]
+      },
+      {
+        "name": "진선규",
+        "works": [
+          "단풍놀이는 핑계고"
+        ]
+      },
+      {
+        "name": "카리나",
+        "works": [
+          "240530 mini핑계고 : 유재석, 에스파(카리나, 윈터)"
+        ]
+      }
+    ],
+    "winner": {
+      "name": "이성민",
+      "works": [
+        "닭발라면은 핑계고",
+        "240718 mini핑계고 : 유재석, 이성민, 신하균, 조세호"
+      ],
+      "description": "핑계고에 출연해 극 중 이미지와 다른 격의 없는 모습으로\n토크에 대한 진심을 보여 깊은 인상을 남겼다는 평을 받음",
+      "specialnote": "수상자가 시상식에 불참하여 영상으로 수상소감을 하였다."
+    },
+    "image": "/images/award/2024/RookieAward.webp"
+  },
+  {
+    "id": 10,
+    "title": "공로상",
+    "englishtitle": "Achievement Award",
+    "type": "special",
+    "winner": {
+      "name": "계원♥",
+      "works": [
+        "핑계고"
+      ],
+      "description": "해가 지나도 핑계고 보기를 멈추지 않으며 채널 뜬뜬과 계주의 든든한 버팀목이 되어주기에 이 상을 수여함",
+      "specialnote": "제2회 핑계고 시상식 영상 초반에 공로상을 비췄다."
+    },
+    "isDedicatedToFans": true,
+    "presentationTiming": "마지막",
+    "image": "/images/award/2024/AchievementAward.webp"
+  },
+  {
+    "id": 11,
+    "title": "특별 대상",
+    "englishtitle": "Special Daesang",
+    "type": "single",
+    "winner": {
+      "name": "유재석"
+    },
+    "image": "/images/award/2024/specialdaesang.webp"
+  }
+]

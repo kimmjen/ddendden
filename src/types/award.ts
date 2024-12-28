@@ -40,6 +40,7 @@ interface Winner {
 
 // 상 타입
 interface Award {
+    id: number;
     title: string;
     englishTitle: string;
     type: 'single' | 'multiple' | 'special';

@@ -55,27 +55,26 @@ export const Navigation = () => {
                     <div className="relative">
                         <button
                             className="font-medium"
-                            onMouseEnter={() => setIsDropdownOpen(true)}
-                            onMouseLeave={() => setIsDropdownOpen(false)}
+                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         >
                             {t('navigation.award')}
                         </button>
 
                         {isDropdownOpen && (
                             <div
-                                className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48"
-                                onMouseEnter={() => setIsDropdownOpen(true)}
-                                onMouseLeave={() => setIsDropdownOpen(false)}
+                                className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 z-[100]"
                             >
                                 <Link
                                     href="/award/2024"
                                     className="block px-4 py-2 hover:bg-gray-100"
+                                    onClick={() => setIsDropdownOpen(false)}
                                 >
                                     제2회 핑계고 시상식
                                 </Link>
                                 <Link
                                     href="/award/2023"
                                     className="block px-4 py-2 hover:bg-gray-100"
+                                    onClick={() => setIsDropdownOpen(false)}
                                 >
                                     제1회 핑계고 시상식
                                 </Link>

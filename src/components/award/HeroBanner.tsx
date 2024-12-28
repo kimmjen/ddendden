@@ -30,6 +30,9 @@ interface Video {
     statistics: VideoStatistics;
     video_type: string;
     url: string;
+    banner: string;
+    MainTitle: string;
+    MainDuration: string;
 }
 
 interface HeroBannerProps {
@@ -44,7 +47,7 @@ export const HeroBanner = ({video}: HeroBannerProps) => {
             {!isPlaying ? (
                 <>
                     <Image
-                        src="/images/award1.webp"
+                        src={video.banner}
                         alt="제1회 핑계고 시상식 배너"
                         fill
                         style={{objectFit: 'cover'}}
@@ -53,8 +56,8 @@ export const HeroBanner = ({video}: HeroBannerProps) => {
                     <div className="absolute inset-0 bg-black/60"/>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
                         <div className="text-center mb-8">
-                            <h1 className="text-6xl font-bold mb-6">제1회 핑계고 시상식</h1>
-                            <p className="text-2xl text-gray-300">2022.11 - 2023.11</p>
+                            <h1 className="text-6xl font-bold mb-6">{video.MainTitle}</h1>
+                            <p className="text-2xl text-gray-300">{video.MainDuration}</p>
                         </div>
                         <button
                             onClick={() => setIsPlaying(true)}
