@@ -1,16 +1,13 @@
 import { useEffect, useState, useMemo } from 'react';
 import { Loader2 } from 'lucide-react';
 import { VideoGrid } from './components/VideoGrid';
-import { Sidebar } from './components/Sidebar';
-import {Video, VideoCategory} from "@/types/video";
-import {filterAndSortVideos} from "@/utils/videoUtils";
-import {useVideos} from "@/hooks/useVideos";
+import {Video} from "@/types/video";
 
 export const VideoTab = () => {
     const [videos, setVideos] = useState<Video[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [currentCategory, setCurrentCategory] = useState('monthly');
+    const [currentCategory, setCurrentCategory] = useState('punghyanggo');
 
     useEffect(() => {
         const fetchVideos = async () => {

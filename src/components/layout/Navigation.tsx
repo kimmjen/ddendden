@@ -1,34 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, Search } from 'lucide-react';
-import ReactCountryFlag from 'react-country-flag';
-import { useRouter } from 'next/navigation';
-import {useTranslation} from "@/i18n/client";
-import {useLanguageStore} from "@/store/languageStore";
-import {useAuthStore} from "@/store/useAuthStore";
-import {Locale} from "@/i18n";
+import { User, Globe, LogOut } from 'lucide-react';
+import { useTranslation } from '@/i18n/client';
+import { useLanguageStore } from '@/store/languageStore';
+import { useAuthStore } from '@/store/useAuthStore';
 
 export const Navigation = () => {
-    const router = useRouter();
     const { language, setLanguage } = useLanguageStore();
     const { t } = useTranslation();
-
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const { user, isAuthenticated, logout } = useAuthStore();
-    const handleLanguageChange = () => {
-        const newLang: Locale = language === 'ko' ? 'en' : 'ko';
-        setLanguage(newLang);
-    }
+
+    const [isAwardDropdownOpen, setIsAwardDropdownOpen] = useState(false);
+    const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
+
+    const awardDropdownRef = useRef<HTMLDivElement | null>(null);
+    const profileDropdownRef = useRef<HTMLDivElement | null>(null);
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (
+            awardDropdownRef.current &&
+            !awardDropdownRef.current.contains(event.target as Node)
+        ) {
+            setIsAwardDropdownOpen(false);
+        }
+        if (
+            profileDropdownRef.current &&
+            !profileDropdownRef.current.contains(event.target as Node)
+        ) {
+            setIsProfileDropdownOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     const handleLogout = () => {
         logout();
-        // 필요한 경우 리다이렉트 추가
     };
 
     return (
         <nav className="bg-white shadow-sm p-4">
             <div className="max-w-6xl mx-auto flex items-center justify-between">
                 <div className="flex items-center space-x-6">
-                    {/*<Menu className="h-6 w-6 text-gray-600" />*/}
                     <Link href="/" className="text-2xl font-bold text-pink-500">
                         뜬뜬
                     </Link>
@@ -49,66 +66,75 @@ export const Navigation = () => {
                     <Link href="/message" className="text-gray-700 hover:text-pink-500">
                         Message
                     </Link>
-                    <div className="relative">
+                    <div className="relative" ref={awardDropdownRef}>
                         <button
-                            className="font-medium"
-                            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            onClick={() =>
+                                setIsAwardDropdownOpen(!isAwardDropdownOpen)
+                            }
+                            className="text-gray-700 hover:text-pink-500 font-medium"
                         >
                             {t('navigation.award')}
                         </button>
-
-                        {isDropdownOpen && (
-                            <div
-                                className="absolute top-full left-0 bg-white shadow-lg rounded-lg py-2 w-48 z-[100]"
-                            >
+                        {isAwardDropdownOpen && (
+                            <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-48 z-50">
                                 <Link
                                     href="/award/2024"
-                                    className="block px-4 py-2 hover:bg-gray-100"
-                                    onClick={() => setIsDropdownOpen(false)}
+                                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                                 >
-                                    제2회 핑계고 시상식
+                                    {t('navigation.award2024')}
                                 </Link>
                                 <Link
                                     href="/award/2023"
-                                    className="block px-4 py-2 hover:bg-gray-100"
-                                    onClick={() => setIsDropdownOpen(false)}
+                                    className="block px-4 py-2 hover:bg-gray-100 text-gray-700"
                                 >
-                                    제1회 핑계고 시상식
+                                    {t('navigation.award2023')}
                                 </Link>
                             </div>
                         )}
                     </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                    <Search className="h-5 w-5 text-gray-600"/>
                     {isAuthenticated ? (
-                        <>
-                                <span className="text-gray-700">
-                                    {user?.name}님 환영합니다
-                                </span>
-                            {user?.type === 'admin' && (
-                                <Link
-                                    href="/admin"
-                                    className="text-gray-700 hover:text-gray-900"
-                                >
-                                    관리자 페이지
-                                </Link>
-                            )}
-                            {user?.type === 'superAdmin' && (
-                                <Link
-                                    href="/admin-super"
-                                    className="text-gray-700 hover:text-gray-900"
-                                >
-                                    슈퍼관리자 페이지
-                                </Link>
-                            )}
+                        <div className="relative" ref={profileDropdownRef}>
+                            {/* 프로필 드롭다운 */}
                             <button
-                                onClick={handleLogout}
-                                className="text-gray-700 hover:text-gray-900"
+                                onClick={() =>
+                                    setIsProfileDropdownOpen(!isProfileDropdownOpen)
+                                }
+                                className="flex items-center space-x-2"
                             >
-                                {t('logout')}
+                                <span className="text-gray-700 hover:text-pink-500">{user?.name || 'User'}</span>
                             </button>
-                        </>
+                            {isProfileDropdownOpen && (
+                                <div className="absolute top-full right-0 mt-2 bg-white shadow-lg rounded-lg py-2 w-48 z-50">
+                                    <Link
+                                        href="/profile"
+                                        className="block px-4 py-2 hover:bg-gray-100 text-gray-700 flex items-center space-x-2"
+                                    >
+                                        <User className="h-5 w-5 text-gray-500" />
+                                        <span>프로필</span>
+                                    </Link>
+                                    <button
+                                        onClick={() =>
+                                            setLanguage(language === 'ko' ? 'en' : 'ko')
+                                        }
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 flex items-center space-x-2"
+                                    >
+                                        <Globe className="h-5 w-5 text-gray-500" />
+                                        <span>
+                                            {language === 'ko' ? 'English' : '한국어'}
+                                        </span>
+                                    </button>
+                                    <button
+                                        onClick={handleLogout}
+                                        className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-gray-700 flex items-center space-x-2"
+                                    >
+                                        <LogOut className="h-5 w-5 text-gray-500" />
+                                        <span>로그아웃</span>
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     ) : (
                         <Link href="/login">
                             <button className="px-4 py-2 bg-pink-500 text-white rounded-full hover:bg-pink-600">
@@ -116,31 +142,6 @@ export const Navigation = () => {
                             </button>
                         </Link>
                     )}
-                    <button
-                        onClick={handleLanguageChange}
-                        className="rounded-full bg-gray-200 p-2 hover:bg-gray-300 flex items-center justify-center"
-                        aria-label={`Change language to ${language === 'ko' ? 'English' : 'Korean'}`}
-                    >
-                        {language === 'ko' ? (
-                            <ReactCountryFlag
-                                countryCode="KR"
-                                svg
-                                style={{
-                                    width: '1.5em',
-                                    height: '1.5em'
-                                }}
-                            />
-                        ) : (
-                            <ReactCountryFlag
-                                countryCode="US"
-                                svg
-                                style={{
-                                    width: '1.5em',
-                                    height: '1.5em'
-                                }}
-                            />
-                        )}
-                    </button>
                 </div>
             </div>
         </nav>

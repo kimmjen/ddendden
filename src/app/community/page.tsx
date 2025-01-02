@@ -100,6 +100,7 @@ export default function CommunityPage() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
     useEffect(() => {
         async function fetchPosts() {
@@ -121,6 +122,14 @@ export default function CommunityPage() {
         fetchPosts();
     }, []);
 
+    const sortedPosts = [...posts].sort((a, b) =>
+        sortOrder === 'asc' ? a.id - b.id : b.id - a.id
+    );
+
+    const toggleSortOrder = () => {
+        setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
+    };
+
     if (isLoading) {
         return (
             <div className="flex justify-center items-center min-h-[400px]">
@@ -140,7 +149,17 @@ export default function CommunityPage() {
     return (
         <div className="min-h-screen bg-gray-50">
             <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
-                {posts.map(post => (
+                {/* 정렬 버튼 */}
+                <div className="flex justify-end mb-4">
+                    <button
+                        onClick={toggleSortOrder}
+                        className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition"
+                    >
+                        {sortOrder === 'asc' ? '오름차순' : '내림차순'}
+                    </button>
+                </div>
+
+                {sortedPosts.map((post) => (
                     <div
                         key={post.id}
                         className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"

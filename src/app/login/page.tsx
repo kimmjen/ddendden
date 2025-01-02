@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuthStore } from "@/store/useAuthStore";
+import { Mail, Lock, User, Shield, ShieldAlert } from 'lucide-react';
 
 interface User {
     id: number;
@@ -120,68 +121,91 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-            <div className="w-[400px] p-8 bg-white rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold mb-8 text-center">로그인</h2>
-                {error && (
-                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-4">
-                        {error}
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-50 to-blue-50">
+            <div className="w-full max-w-md p-4">
+                <div className="bg-white rounded-2xl shadow-xl p-8 transition-all">
+                    <div className="text-center mb-8">
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">환영합니다 👋</h1>
+                        <p className="text-gray-600">계정 정보를 입력하여 로그인해주세요</p>
                     </div>
-                )}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-sm mb-2">이메일</label>
-                        <input
-                            type="email"
-                            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]"
-                            value={formData.email}
-                            onChange={e => setFormData({...formData, email: e.target.value})}
-                            disabled={isLoading}
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm mb-2">비밀번호</label>
-                        <input
-                            type="password"
-                            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-[#ff6b6b]"
-                            value={formData.password}
-                            onChange={e => setFormData({...formData, password: e.target.value})}
-                            disabled={isLoading}
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="w-full bg-[#ff6b6b] text-white py-2 rounded mt-4 hover:bg-[#ff5252] transition-colors disabled:opacity-50"
-                        disabled={isLoading}
-                    >
-                        {isLoading ? '로그인 중...' : '로그인'}
-                    </button>
-                </form>
 
-                <div className="mt-8">
-                    <div className="text-center text-sm text-gray-500 mb-4">또는 테스트 계정으로 로그인</div>
-                    <div className="space-y-2">
+                    {error && (
+                        <div className="mb-6 bg-red-50 text-red-600 px-4 py-3 rounded-lg border border-red-200">
+                            {error}
+                        </div>
+                    )}
+
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div className="space-y-4">
+                            <div className="relative">
+                                <Mail className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                                <input
+                                    type="email"
+                                    placeholder="이메일을 입력하세요"
+                                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+                                    value={formData.email}
+                                    onChange={e => setFormData({...formData, email: e.target.value})}
+                                    disabled={isLoading}
+                                />
+                            </div>
+                            <div className="relative">
+                                <Lock className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
+                                <input
+                                    type="password"
+                                    placeholder="비밀번호를 입력하세요"
+                                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent transition-all"
+                                    value={formData.password}
+                                    onChange={e => setFormData({...formData, password: e.target.value})}
+                                    disabled={isLoading}
+                                />
+                            </div>
+                        </div>
+
                         <button
-                            onClick={() => handleQuickLogin('user')}
-                            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors disabled:opacity-50"
+                            type="submit"
+                            className="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-lg font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed"
                             disabled={isLoading}
                         >
-                            일반 사용자로 로그인
+                            {isLoading ? '로그인 중...' : '로그인'}
                         </button>
-                        <button
-                            onClick={() => handleQuickLogin('admin')}
-                            className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 transition-colors disabled:opacity-50"
-                            disabled={isLoading}
-                        >
-                            관리자로 로그인
-                        </button>
-                        <button
-                            onClick={() => handleQuickLogin('superAdmin')}
-                            className="w-full bg-purple-500 text-white py-2 rounded hover:bg-purple-600 transition-colors disabled:opacity-50"
-                            disabled={isLoading}
-                        >
-                            최고관리자로 로그인
-                        </button>
+                    </form>
+
+                    <div className="mt-8">
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t border-gray-200"></div>
+                            </div>
+                            <div className="relative flex justify-center text-sm">
+                                <span className="px-4 bg-white text-gray-500">테스트 계정으로 로그인</span>
+                            </div>
+                        </div>
+
+                        <div className="mt-6 space-y-3">
+                            <button
+                                onClick={() => handleQuickLogin('user')}
+                                disabled={isLoading}
+                                className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-150"
+                            >
+                                <User className="h-5 w-5" />
+                                일반 사용자로 로그인
+                            </button>
+                            <button
+                                onClick={() => handleQuickLogin('admin')}
+                                disabled={isLoading}
+                                className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-150"
+                            >
+                                <Shield className="h-5 w-5" />
+                                관리자로 로그인
+                            </button>
+                            {/*<button*/}
+                            {/*    onClick={() => handleQuickLogin('superAdmin')}*/}
+                            {/*    disabled={isLoading}*/}
+                            {/*    className="w-full flex items-center justify-center gap-2 px-4 py-3 border border-gray-200 rounded-lg text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-150"*/}
+                            {/*>*/}
+                            {/*    <ShieldAlert className="h-5 w-5" />*/}
+                            {/*    최고관리자로 로그인*/}
+                            {/*</button>*/}
+                        </div>
                     </div>
                 </div>
             </div>
