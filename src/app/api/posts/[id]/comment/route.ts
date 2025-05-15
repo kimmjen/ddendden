@@ -11,11 +11,14 @@ interface Post {
 
 // GET: 특정 게시글의 댓글 조회
 export async function GET(
-    request: NextRequest,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 2]; // posts/[id]/comment에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -68,11 +71,14 @@ export async function GET(
 
 // POST: 특정 게시글에 댓글 추가
 export async function POST(
-    request: NextRequest,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 2]; // posts/[id]/comment에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(

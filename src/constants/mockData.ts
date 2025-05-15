@@ -51,42 +51,63 @@ export const MOCK_TAGS = [
 export const MOCK_POSTS: Post[] = [
     {
         id: 1,
-        post_id: 1,
+        post_id: 1001,
         author: {
+            id: 101,
             name: '뜬뜬계원_1',
             avatar: '/images/avatar.webp'
         },
+        title: '핑계고 앱 리뷰',
         content: '이번 핑계고 영상 진짜 유용했어요! 저도 그 앱 써봤는데 완전 좋네요 👍',
-        createdAt: '2시간 전',
+        createdAt: '2024-07-10T14:30:00Z',
+        updatedAt: '2024-07-10T14:30:00Z',
         likes: 42,
         comments: 12,
-        tags: ['핑계고', '앱리뷰']
+        tags: ['핑계고', '앱리뷰'],
+        vote_count: '42',
+        images: [],
+        poll_data: null,
+        is_pinned: false
     },
     {
         id: 2,
-        post_id: 2,
+        post_id: 1002,
         author: {
+            id: 102,
             name: '뜬뜬계원_2',
             avatar: '/images/avatar.webp'
         },
+        title: 'MINI 핑계 시리즈 후기',
         content: 'MINI 핑계 시리즈 너무 재밌어요~ 다음 편도 기대됩니다 😊',
-        createdAt: '3시간 전',
+        createdAt: '2024-07-10T13:30:00Z',
+        updatedAt: '2024-07-10T13:30:00Z',
         likes: 38,
         comments: 8,
-        tags: ['MINI핑계']
+        tags: ['MINI핑계'],
+        vote_count: '38',
+        images: [],
+        poll_data: null,
+        is_pinned: false
     },
     {
         id: 3,
-        post_id: 3,
+        post_id: 1003,
         author: {
+            id: 103,
             name: '뜬뜬계원_3',
             avatar: '/images/avatar.webp'
         },
+        title: '다음 시상식 문의',
         content: '다음 시상식은 언제인가요? 기다리고 있어요!',
-        createdAt: '5시간 전',
+        createdAt: '2024-07-10T11:30:00Z',
+        updatedAt: '2024-07-10T11:30:00Z',
         likes: 27,
         comments: 15,
-        tags: ['시상식']
+        tags: ['시상식'],
+        vote_count: '27',
+        images: [],
+        poll_data: null,
+        is_pinned: false
     }
 ];
 

@@ -1,9 +1,12 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 
-export async function GET(request: Request, { params }: { params: Promise<{ year: string }> }) {
-    const { year } = await params;
+export async function GET(request: NextRequest) {
+    // URL에서 year 파라미터 추출
+    const url = new URL(request.url);
+    const pathSegments = url.pathname.split('/');
+    const year = pathSegments[pathSegments.length - 1];
 
     if (!year) {
         return new Response(JSON.stringify({ error: 'Year is required' }), { status: 400 });

@@ -1,14 +1,23 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+interface Post {
+  id: number;
+  post_id?: number;
+  [key: string]: any;
+}
 
 // GET: 특정 ID의 게시글 조회
 export async function GET(
-    request: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 1]; // posts/[id]에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -23,7 +32,7 @@ export async function GET(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const posts = JSON.parse(fileContents);
+        const posts: Post[] = JSON.parse(fileContents);
 
         // 데이터가 배열인지 확인
         if (!Array.isArray(posts)) {
@@ -35,7 +44,7 @@ export async function GET(
         }
 
         // 특정 id의 게시글 검색
-        const post = posts.find(item => item.id === id || item.post_id === id);
+        const post = posts.find((item: Post) => item.id === id || item.post_id === id);
         
         if (!post) {
             return NextResponse.json(
@@ -56,11 +65,14 @@ export async function GET(
 
 // PUT: 게시글 수정
 export async function PUT(
-    request: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 1]; // posts/[id]에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -78,10 +90,10 @@ export async function PUT(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const posts = JSON.parse(fileContents);
+        const posts: Post[] = JSON.parse(fileContents);
 
         // 특정 id의 게시글 검색
-        const postIndex = posts.findIndex(item => item.id === id || item.post_id === id);
+        const postIndex = posts.findIndex((item: Post) => item.id === id || item.post_id === id);
         
         if (postIndex === -1) {
             return NextResponse.json(
@@ -117,11 +129,14 @@ export async function PUT(
 
 // DELETE: 게시글 삭제
 export async function DELETE(
-    request: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 1]; // posts/[id]에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -136,10 +151,10 @@ export async function DELETE(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        let posts = JSON.parse(fileContents);
+        let posts: Post[] = JSON.parse(fileContents);
 
         // 특정 id의 게시글 검색
-        const postIndex = posts.findIndex(item => item.id === id || item.post_id === id);
+        const postIndex = posts.findIndex((item: Post) => item.id === id || item.post_id === id);
         
         if (postIndex === -1) {
             return NextResponse.json(

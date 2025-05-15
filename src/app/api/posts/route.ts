@@ -1,9 +1,19 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import dayjs from 'dayjs';
 
-export async function GET(request: Request) {
+interface Post {
+  id: number;
+  post_id?: number;
+  is_pinned?: boolean;
+  createdAt: string;
+  likes: number;
+  tags?: string[];
+  [key: string]: any;
+}
+
+export async function GET(request: NextRequest) {
     try {
         // 요청 URL에서 쿼리 파라미터 추출
         const { searchParams } = new URL(request.url);
@@ -19,7 +29,7 @@ export async function GET(request: Request) {
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        let data = JSON.parse(fileContents);
+        let data: Post[] = JSON.parse(fileContents);
 
         // 데이터가 배열인지 확인
         if (!Array.isArray(data)) {
@@ -28,7 +38,7 @@ export async function GET(request: Request) {
         }
 
         // 고정된 게시글을 맨 앞으로 정렬
-        data.sort((a, b) => {
+        data.sort((a: Post, b: Post) => {
             // 고정된 게시글은 항상 최상단에 표시
             if (a.is_pinned && !b.is_pinned) return -1;
             if (!a.is_pinned && b.is_pinned) return 1;
@@ -45,7 +55,7 @@ export async function GET(request: Request) {
         // 필터링: time (예: all, week, month, year)
         if (time !== 'all') {
             const now = dayjs();
-            data = data.filter(post => {
+            data = data.filter((post: Post) => {
                 // 고정된 게시글은 항상 포함
                 if (post.is_pinned) return true;
                 
@@ -68,7 +78,7 @@ export async function GET(request: Request) {
 
         // 태그로 필터링
         if (tag) {
-            data = data.filter(post => {
+            data = data.filter((post: Post) => {
                 // 고정된 게시글은 항상 포함
                 if (post.is_pinned) return true;
                 
@@ -101,7 +111,7 @@ export async function GET(request: Request) {
     }
 }
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
         // 요청 본문 파싱
         const body = await request.json();
@@ -120,7 +130,7 @@ export async function POST(request: Request) {
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        let posts = JSON.parse(fileContents);
+        let posts: Post[] = JSON.parse(fileContents);
 
         // 데이터가 배열인지 확인
         if (!Array.isArray(posts)) {
@@ -129,11 +139,11 @@ export async function POST(request: Request) {
         }
 
         // 새 게시글 ID 생성 (최대 ID + 1)
-        const maxId = Math.max(...posts.map(post => post.id), 0);
-        const maxPostId = Math.max(...posts.map(post => post.post_id), 1000);
+        const maxId = Math.max(...posts.map((post: Post) => post.id), 0);
+        const maxPostId = Math.max(...posts.map((post: Post) => post.post_id || 0), 1000);
 
         // 새 게시글 객체 생성
-        const newPost = {
+        const newPost: Post = {
             id: maxId + 1,
             post_id: maxPostId + 1,
             author: body.author,

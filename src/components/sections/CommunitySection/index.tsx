@@ -6,19 +6,22 @@ import { ArrowRight, Loader2, Plus } from 'lucide-react';
 import { usePosts } from '@/hooks/usePosts';
 import { PostFormModal } from './PostFormModal';
 import { useSearchParams } from 'next/navigation';
+import { Post } from '@/types/post';
 
 interface CommunitySectionProps {
   limit?: number;
   showTitle?: boolean;
   timeFilter?: 'all' | 'day' | 'week' | 'month' | 'year';
   sortOrder?: 'recent' | 'popular';
+  posts?: Post[];
 }
 
 export const CommunitySection = ({
   limit = 3,
   showTitle = true,
   timeFilter: propTimeFilter,
-  sortOrder: propSortOrder
+  sortOrder: propSortOrder,
+  posts: propPosts
 }: CommunitySectionProps) => {
   const searchParams = useSearchParams();
   const tagParam = searchParams.get('tag');
@@ -40,8 +43,9 @@ export const CommunitySection = ({
     }
   }, [propSortOrder]);
 
+  // props로 posts가 전달되면 usePosts 훅을 사용하지 않음
   const {
-    posts,
+    posts: apiPosts,
     isLoading,
     error,
     hasMore,
@@ -49,18 +53,39 @@ export const CommunitySection = ({
     toggleLike,
     createPost,
     refresh
-  } = usePosts({ 
+  } = usePosts(propPosts ? undefined : { 
     limit, 
     timeFilter, 
     tag: tagParam || null,
     sort: sortOrder
   });
 
+  // props로 전달받은 posts가 있으면 그것을 사용, 없으면 API에서 가져온 posts 사용
+  const displayPosts = propPosts || apiPosts;
+
   const handleCreatePost = async (postData: any) => {
+    if (propPosts) {
+      // props로 전달된 posts를 사용하는 경우 createPost 동작을 다르게 처리해야 함
+      console.log('Creating post:', postData);
+      setIsPostModalOpen(false);
+      return true;
+    }
+    
     const result = await createPost(postData);
     if (result) {
       setIsPostModalOpen(false);
     }
+    return result;
+  };
+
+  const handleToggleLike = (postId: number, isLiked: boolean) => {
+    if (propPosts) {
+      // props로 전달된 posts를 사용하는 경우 toggleLike 동작을 다르게 처리해야 함
+      console.log('Toggle like:', postId, isLiked);
+      return;
+    }
+    
+    toggleLike(postId, isLiked);
   };
 
   const handleTimeFilterChange = (newFilter: 'all' | 'day' | 'week' | 'month' | 'year') => {
@@ -96,7 +121,7 @@ export const CommunitySection = ({
         </div>
       )}
 
-      {error && (
+      {error && !propPosts && (
         <div className="p-4 bg-red-50 text-red-600 rounded-md">
           {error}
         </div>
@@ -108,7 +133,7 @@ export const CommunitySection = ({
         </div>
       )}
 
-      {posts.length === 0 && !isLoading ? (
+      {displayPosts.length === 0 && !isLoading ? (
         <div className="p-8 text-center bg-gray-50 rounded-lg">
           <p className="text-gray-500">게시글이 없습니다.</p>
           <button
@@ -120,23 +145,23 @@ export const CommunitySection = ({
         </div>
       ) : (
         <div className="space-y-6">
-          {posts.map((post) => (
+          {displayPosts.map((post) => (
             <PostCard
               key={post.id}
               post={post}
-              onLike={(isLiked) => toggleLike(post.id, isLiked)}
+              onLike={(isLiked) => handleToggleLike(post.id, isLiked)}
             />
           ))}
         </div>
       )}
 
-      {isLoading && (
+      {isLoading && !propPosts && (
         <div className="flex justify-center py-4">
           <Loader2 className="animate-spin h-6 w-6 text-purple-600" />
         </div>
       )}
 
-      {!isLoading && hasMore && (
+      {!isLoading && hasMore && !propPosts && (
         <div className="flex justify-center pt-4">
           <button
             onClick={() => {

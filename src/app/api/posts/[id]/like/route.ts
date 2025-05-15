@@ -1,14 +1,25 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+interface Post {
+  id: number;
+  post_id?: number;
+  likes: number;
+  vote_count: string;
+  [key: string]: any;
+}
 
 // POST: 게시글 좋아요 추가
 export async function POST(
-    request: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 2]; // posts/[id]/like에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -23,10 +34,10 @@ export async function POST(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const posts = JSON.parse(fileContents);
+        const posts: Post[] = JSON.parse(fileContents);
 
         // 특정 id의 게시글 검색
-        const postIndex = posts.findIndex(item => item.id === id || item.post_id === id);
+        const postIndex = posts.findIndex((item: Post) => item.id === id || item.post_id === id);
         
         if (postIndex === -1) {
             return NextResponse.json(
@@ -61,11 +72,14 @@ export async function POST(
 
 // DELETE: 게시글 좋아요 취소
 export async function DELETE(
-    request: Request,
-    { params }: { params: { id: string } }
+    request: NextRequest
 ) {
     try {
-        const id = parseInt(params.id, 10);
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const idSegment = pathSegments[pathSegments.length - 2]; // posts/[id]/like에서 [id] 부분 추출
+        const id = parseInt(idSegment, 10);
         
         if (isNaN(id)) {
             return NextResponse.json(
@@ -80,10 +94,10 @@ export async function DELETE(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const posts = JSON.parse(fileContents);
+        const posts: Post[] = JSON.parse(fileContents);
 
         // 특정 id의 게시글 검색
-        const postIndex = posts.findIndex(item => item.id === id || item.post_id === id);
+        const postIndex = posts.findIndex((item: Post) => item.id === id || item.post_id === id);
         
         if (postIndex === -1) {
             return NextResponse.json(

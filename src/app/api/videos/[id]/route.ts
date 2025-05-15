@@ -1,10 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import { promises as fs } from 'fs';
 
-export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(request: NextRequest) {
     try {
-        const { id } = await params;
+        // URL에서 id 파라미터 추출
+        const url = new URL(request.url);
+        const pathSegments = url.pathname.split('/');
+        const id = pathSegments[pathSegments.length - 1];
+        
         const jsonDirectory = path.join(process.cwd(), 'data');
         const fileContents = await fs.readFile(jsonDirectory + '/videos_all.json', 'utf8');
         const videos = JSON.parse(fileContents);
