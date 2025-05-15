@@ -3,7 +3,8 @@ import {Layout} from "@/components/layout/Layout";
 import {useLanguageStore} from "@/store/languageStore";
 import React, {useEffect} from "react";
 import './globals.css'
-// import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 function LanguageProvider({ children }: { children: React.ReactNode }) {
     const language = useLanguageStore(state => state.language);
 
@@ -30,7 +31,7 @@ export default function RootLayout({
         <LanguageProvider>
             <Layout>
                 {children}
-                {/*<SpeedInsights/>*/}
+                <SpeedInsights/>
             </Layout>
         </LanguageProvider>
 
