@@ -1,10 +1,17 @@
 import { promises as fs } from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+
+interface Post {
+  id: number;
+  post_id?: number;
+  comments: number;
+  [key: string]: any;
+}
 
 // GET: 특정 게시글의 댓글 조회
 export async function GET(
-    request: Request,
+    request: NextRequest,
     { params }: { params: { id: string } }
 ) {
     try {
@@ -61,7 +68,7 @@ export async function GET(
 
 // POST: 특정 게시글에 댓글 추가
 export async function POST(
-    request: Request,
+    request: NextRequest,
     { params }: { params: { id: string } }
 ) {
     try {
@@ -90,10 +97,10 @@ export async function POST(
 
         // 파일 읽기 및 JSON 파싱
         const fileContents = await fs.readFile(filePath, 'utf8');
-        const posts = JSON.parse(fileContents);
+        const posts: Post[] = JSON.parse(fileContents);
 
         // 특정 id의 게시글 검색
-        const postIndex = posts.findIndex(item => item.id === id || item.post_id === id);
+        const postIndex = posts.findIndex((item: Post) => item.id === id || item.post_id === id);
         
         if (postIndex === -1) {
             return NextResponse.json(
