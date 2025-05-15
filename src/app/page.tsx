@@ -5,7 +5,7 @@ import { ScheduleCalendar } from "@/components/sections/Calendar";
 import { MonthlyMembers } from "@/components/sections/SideSection/MonthlyMembers";
 import { PopularTags } from "@/components/sections/SideSection/PopularTags";
 import { CommunitySection } from "@/components/sections/CommunitySection";
-import { MOCK_MEMBERS, MOCK_POSTS, MOCK_TAGS } from "@/constants/mockData";
+import { MOCK_MEMBERS, MOCK_TAGS } from "@/constants/mockData";
 import { ImageBanner } from "@/components/layout/ImageBanner";
 import { SeriesSection } from "@/components/sections/SeriesSection";
 import { SERIES_LIST } from "@/constants/seriesData";
@@ -113,9 +113,10 @@ export default function Home() {
             <ImageBanner />
             <div className="max-w-6xl mx-auto px-4 py-8">
                 <SeriesSection series={SERIES_LIST}/>
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8 mt-10">
                     <div>
-                        <CommunitySection posts={MOCK_POSTS} />
+                        {/* API 연동된 CommunitySection - props 변경 */}
+                        <CommunitySection limit={3} showTitle={true} />
                     </div>
 
                     <div className="space-y-6">

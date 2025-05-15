@@ -85,8 +85,8 @@ export const SERIES_LIST = [
         thumbnail_urls: '/images/punghyanggo.webp',
         englishTitle: 'Punghyanggo',
         startDate: '2024-11-24',
-        endDate: '2024-09-30',
-        isOngoing: true,
+        endDate: '2024-12-21',
+        isOngoing: false,
         schedule: '일요일 오전 9:00',
         production: '안테나 플러스',
         staff: {

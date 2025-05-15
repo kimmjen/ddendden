@@ -1,249 +1,108 @@
 'use client';
 
-import { useTranslation } from "@/i18n/client";
-import { Post } from "@/types/post";
-import Image from "next/image";
-import {Heart, Loader2, MessageCircle, Share2} from "lucide-react";
-import { useEffect, useState } from "react";
-import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-interface ContentDisplayProps {
-    content: string;
-}
-
-// ContentDisplay 컴포넌트를 더 단순화
-const ContentDisplay: React.FC<ContentDisplayProps> = ({ content }) => {
-    const formatContent = (text: string) => {
-        return text.split('\n').map((line, index) => (
-            <React.Fragment key={index}>
-                {line}
-                {index < text.split('\n').length - 1 && <br />}
-            </React.Fragment>
-        ));
-    };
-
-    return (
-        <div className="text-gray-800 leading-relaxed">
-            {formatContent(content)}
-        </div>
-    );
-};
-interface ImageCarouselProps {
-    images: string[];
-}
-
-const ImageCarousel: React.FC<ImageCarouselProps> = ({ images }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const handlePrevious = () => {
-        setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-    };
-
-    const handleNext = () => {
-        setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-    };
-
-    if (!images || images.length === 0) return null;
-
-    return (
-        <div className="relative rounded-lg overflow-hidden mt-4">
-            {/* Main Image */}
-            <div className="relative h-auto">
-                <img
-                    src={images[currentIndex]}
-                    alt={`Slide ${currentIndex + 1}`}
-                    className="w-full h-full object-cover"
-                />
-            </div>
-
-            {/* Navigation Arrows */}
-            {images.length > 1 && (
-                <>
-                    <button
-                        onClick={handlePrevious}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full
-                     bg-black/50 text-white hover:bg-black/70 transition-colors"
-                    >
-                        <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <button
-                        onClick={handleNext}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full
-                     bg-black/50 text-white hover:bg-black/70 transition-colors"
-                    >
-                        <ChevronRight className="w-6 h-6" />
-                    </button>
-                </>
-            )}
-
-            {/* Indicators */}
-            {images.length > 1 && (
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-                    {images.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrentIndex(index)}
-                            className={`w-2 h-2 rounded-full transition-colors ${
-                                index === currentIndex ? 'bg-white' : 'bg-white/50'
-                            }`}
-                        />
-                    ))}
-                </div>
-            )}
-        </div>
-    );
-};
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { CommunitySection } from '@/components/sections/CommunitySection';
+import { ArrowLeft, Filter } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CommunityPage() {
-    const { t } = useTranslation();
-    const [posts, setPosts] = useState<Post[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
-    const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const searchParams = useSearchParams();
+  const tagParam = searchParams.get('tag');
+  const [showFilters, setShowFilters] = useState(false);
+  const [selectedTimeFilter, setSelectedTimeFilter] = useState<'all' | 'day' | 'week' | 'month' | 'year'>('all');
+  const [selectedSortOrder, setSelectedSortOrder] = useState<'recent' | 'popular'>('recent');
 
-    useEffect(() => {
-        async function fetchPosts() {
-            try {
-                const response = await fetch('/api/community');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch posts');
-                }
-                const data = await response.json();
-                setPosts(data);
-            } catch (err) {
-                setError('Failed to load posts');
-                console.error('Error fetching posts:', err);
-            } finally {
-                setIsLoading(false);
-            }
-        }
+  const timeFilters = [
+    { value: 'all', label: '전체 기간' },
+    { value: 'day', label: '오늘' },
+    { value: 'week', label: '이번 주' },
+    { value: 'month', label: '이번 달' },
+    { value: 'year', label: '올해' }
+  ];
 
-        fetchPosts();
-    }, []);
+  const sortOptions = [
+    { value: 'recent', label: '최신순' },
+    { value: 'popular', label: '인기순' }
+  ];
 
-    const sortedPosts = [...posts].sort((a, b) =>
-        sortOrder === 'asc' ? a.id - b.id : b.id - a.id
-    );
-
-    const toggleSortOrder = () => {
-        setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
-    };
-
-    if (isLoading) {
-        return (
-            <div className="flex justify-center items-center min-h-[400px]">
-                <Loader2 className="animate-spin h-8 w-8 text-pink-500" />
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-                <div className="text-red-500">{error}</div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="min-h-screen bg-gray-50">
-            <div className="max-w-4xl mx-auto px-4 py-8 space-y-6">
-                {/* 정렬 버튼 */}
-                <div className="flex justify-end mb-4">
-                    <button
-                        onClick={toggleSortOrder}
-                        className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 transition"
-                    >
-                        {sortOrder === 'asc' ? '오름차순' : '내림차순'}
-                    </button>
-                </div>
-
-                {sortedPosts.map((post) => (
-                    <div
-                        key={post.id}
-                        className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <div className="p-6">
-                            {/* Author Section */}
-                            <div className="flex items-center space-x-3 mb-6">
-                                <div className="relative h-12 w-12 rounded-full overflow-hidden ring-2 ring-purple-100">
-                                    {post.author.avatar ? (
-                                        <Image
-                                            src={post.author.avatar}
-                                            alt={post.author.name}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    ) : (
-                                        <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600" />
-                                    )}
-                                </div>
-                                <div>
-                                    <p className="font-semibold text-gray-900 hover:text-purple-600 transition-colors">
-                                        {post.author.name}
-                                    </p>
-                                    <p className="text-sm text-gray-500">{post.createdAt}</p>
-                                </div>
-                            </div>
-
-                            {/* Content Section */}
-                            <div className="space-y-4 mb-6">
-                                <ContentDisplay content={post.content} />
-
-                                {/* Images Section */}
-                                {post.images && post.images.length > 0 && (
-                                    <ImageCarousel images={post.images} />
-                                )}
-
-                                {/* Poll Section */}
-                                {post.poll_data && (
-                                    <div className="mt-4 space-y-3 bg-purple-50 p-4 rounded-lg">
-                                        {post.poll_data.choices.map((choice, index) => (
-                                            <div key={index} className="flex items-center space-x-3">
-                                                <div className="flex-1">
-                                                    <div className="relative h-10 bg-white rounded overflow-hidden">
-                                                        <div
-                                                            className="absolute h-full bg-purple-200"
-                                                            style={{ width: choice.vote_percentage }}
-                                                        />
-                                                        <div className="relative z-10 px-3 py-2 text-sm">
-                                                            {choice.text}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <span className="text-sm font-medium text-purple-600">
-                          {choice.vote_percentage}
-                        </span>
-                                            </div>
-                                        ))}
-                                        <p className="text-sm text-gray-500 mt-2">
-                                            {post.poll_data.total_votes}
-                                        </p>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Interaction Section */}
-                            <div className="flex items-center justify-between border-t pt-4">
-                                <div className="flex items-center space-x-6">
-                                    <button className="flex items-center space-x-2 text-gray-500 hover:text-purple-600 transition-colors group">
-                                        <Heart className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                                        <span className="text-sm font-medium">{post.vote_count}</span>
-                                    </button>
-                                    <button className="flex items-center space-x-2 text-gray-500 hover:text-purple-600 transition-colors group">
-                                        <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform" />
-                                        <span className="text-sm font-medium">댓글</span>
-                                    </button>
-                                </div>
-                                <button className="text-gray-500 hover:text-purple-600 transition-colors p-2 rounded-full hover:bg-purple-50">
-                                    <Share2 className="h-5 w-5" />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="mb-6 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">커뮤니티</h1>
+            {tagParam && (
+              <div className="flex items-center mt-2">
+                <Link href="/community" className="text-purple-600 hover:underline text-sm flex items-center">
+                  <ArrowLeft className="h-3 w-3 mr-1" />
+                  모든 게시글 보기
+                </Link>
+                <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-sm ml-2">
+                  #{tagParam}
+                </span>
+              </div>
+            )}
+          </div>
+          
+          <button
+            onClick={() => setShowFilters(!showFilters)}
+            className="flex items-center px-3 py-1.5 text-sm bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
+          >
+            <Filter className="h-4 w-4 mr-1.5" />
+            필터
+          </button>
         </div>
-    );
+        
+        {showFilters && (
+          <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">기간</h3>
+                <div className="space-y-1">
+                  {timeFilters.map((filter) => (
+                    <label key={filter.value} className="flex items-center">
+                      <input
+                        type="radio"
+                        name="timeFilter"
+                        value={filter.value}
+                        checked={selectedTimeFilter === filter.value}
+                        onChange={() => setSelectedTimeFilter(filter.value as any)}
+                        className="mr-2 text-purple-600 focus:ring-purple-500"
+                      />
+                      <span className="text-sm text-gray-700">{filter.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <h3 className="text-sm font-medium text-gray-700 mb-2">정렬</h3>
+                <div className="space-y-1">
+                  {sortOptions.map((option) => (
+                    <label key={option.value} className="flex items-center">
+                      <input
+                        type="radio"
+                        name="sortOrder"
+                        value={option.value}
+                        checked={selectedSortOrder === option.value}
+                        onChange={() => setSelectedSortOrder(option.value as any)}
+                        className="mr-2 text-purple-600 focus:ring-purple-500"
+                      />
+                      <span className="text-sm text-gray-700">{option.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        
+        <CommunitySection
+          limit={10}
+          showTitle={false}
+        />
+      </div>
+    </div>
+  );
 }
